@@ -8,6 +8,11 @@ spring:
         username: admin
         password: admin
 
+    r2dbc:
+        url: r2dbc:h2:mem:///testdb
+        username: admin
+        password: admin
+
     jpa:
         hibernate:
             ddl-auto: update
