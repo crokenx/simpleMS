@@ -1,17 +1,19 @@
 package com.orders.crx.simpleMS.order;
 
+import jakarta.validation.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Table("orders")
 public class Order {
 
     @Id
     private long id;
+    @NotEmpty(message = "you must provide an order name")
     private String order_name;
-    private LocalDateTime order_date;
+    private LocalDate order_date;
 
     public long getId() {
         return id;
@@ -29,11 +31,11 @@ public class Order {
         this.order_name = order_name;
     }
 
-    public LocalDateTime getOrder_date() {
+    public LocalDate getOrder_date() {
         return order_date;
     }
 
-    public void setOrder_date(LocalDateTime order_date) {
+    public void setOrder_date(LocalDate order_date) {
         this.order_date = order_date;
     }
 }

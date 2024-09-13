@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.time.LocalDate;
+
 @Service
 public class OrderService {
 
@@ -22,6 +24,7 @@ public class OrderService {
     }
 
     public Mono<Order> createOrder(Order order){
+        order.setOrder_date(LocalDate.now());
         return orderRepository.save(order);
     }
 

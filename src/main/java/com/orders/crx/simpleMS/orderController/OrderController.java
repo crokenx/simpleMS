@@ -1,13 +1,16 @@
 package com.orders.crx.simpleMS.orderController;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.orders.crx.simpleMS.order.Order;
 import com.orders.crx.simpleMS.services.OrderService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@JsonIgnoreProperties(ignoreUnknown = true)
 @RequestMapping("/orders")
 public class OrderController {
 
@@ -25,7 +28,7 @@ public class OrderController {
     }
 
     @PostMapping
-    public Mono<Order> createOrder(@RequestBody Order order){
+    public Mono<Order> createOrder(@Valid @RequestBody Order order){
         return orderService.createOrder(order);
     }
 }

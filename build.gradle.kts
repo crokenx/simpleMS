@@ -37,6 +37,8 @@ dependencies {
 	// JDBC MySQL Driver
 	runtimeOnly("mysql:mysql-connector-java:8.0.29")
 
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+
 	// H2 Database for testing
 	/*implementation("io.r2dbc:r2dbc-h2")
 	runtimeOnly("com.h2database:h2")*/
